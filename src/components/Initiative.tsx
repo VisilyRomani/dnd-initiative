@@ -10,7 +10,7 @@ const Initiative = ({ char }: { char: ICharacter }) => {
         transition
     }
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="w-full p-3 border-slate-400 bg-gray-100 border flex justify-between items-center  capitalize font-bold text-gray-600 text-xl">
+    <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="rounded-md w-full p-3 border-indigo-500 bg-zinc-800 border flex justify-between items-center  capitalize font-bold text-gray-200 text-xl">
       {char.name}
     </div>
   );

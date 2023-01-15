@@ -2,8 +2,9 @@
 import { join } from 'path';
 
 // Packages
-import { BrowserWindow, app, ipcMain, IpcMainEvent } from 'electron';
+import { BrowserWindow, app, ipcMain, IpcMainEvent, nativeImage } from 'electron';
 import isDev from 'electron-is-dev';
+
 
 const height = 720;
 const width = 1280;
@@ -23,6 +24,9 @@ function createWindow() {
     },
     title:'DnD Initiative Tracker'
   });
+
+  window.setOverlayIcon(nativeImage.createFromPath('./blist.png'),'Dnd Initiative Tracker')
+  window.setIcon(nativeImage.createFromPath('./blist.png'))
   
   const port = process.env.PORT || 3000;
   const url = isDev ? `http://localhost:${port}` : join(__dirname, '../src/out/index.html');

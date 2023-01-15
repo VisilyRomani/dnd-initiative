@@ -1,6 +1,7 @@
 // import { useDraggable } from "@dnd-kit/core";
 import cuid from "cuid";
-import React, { useState } from "react";
+import React, { DetailedHTMLProps, FormEvent, FormEventHandler, FormHTMLAttributes, useState } from "react";
+import { style } from "../App";
 import Character from "./Character";
 
 export interface ICharacter {
@@ -23,7 +24,9 @@ const Characters = ({
     ) as ICharacter[];
   });
 
-  const OnFormSubmit = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const OnFormSubmit = (e:FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     if (character) {
       const newList = [
         ...listChar,
@@ -33,41 +36,45 @@ const Characters = ({
       setListChar(newList);
       setCharacter("");
     }
-  }
+  };
 
   return (
-    <div className="flex flex-col items-center gap-5 overflow-auto">
-      <h1 className="text-gray-50 font-bold text-2xl">Characters</h1>
-        <form onSubmit={OnFormSubmit} className="flex flex-row gap-3 w-72">
+    <div className="flex flex-col items-center gap-5 overflow-auto m-3">
+      <h1 className="text-gray-50 font-bold text-3xl">Characters</h1>
+      <form onSubmit={OnFormSubmit} className='w-full'>
+        <div className="flex flex-row items-center justify-center gap-3 w-full">
         <input
           value={character}
-          className="rounded-sm w-full"
+          style={style}
+          className="rounded-md w-full h-12 mx-1 p-2"
           onChange={(e) => setCharacter(e.target.value)}
-          ></input>
+          />
         <button
           type="submit"
-          className="bg-slate-50 p-2 hover:bg-slate-200 active:bg-slate-500 rounded-sm">
-          submit
+          style={style}
+          className="text-indigo-500 whitespace-nowrap hover:text-white border border-indigo-500 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 h-12 text-center dark:border-blue-500 dark:hover:text-white dark:hover:bg-indigo-500 m-1"
+          >
+          New Character
         </button>
-          </form>
+          </div>
+      </form>
 
-      <div className="bg-slate-300 w-72 mb-10 flex-auto flex-col overflow-auto h-80 rounded-md">
+      <div className="bg-zinc-900 w-full mb-10 flex flex-auto flex-col items-center overflow-auto h-80 rounded-md gap-2">
         {listChar
           .filter((lc) => !initiative.find((i) => lc.id === i.id))
           .sort((a, b) => (b.star ? 1 : 0) - (a.star ? 1 : 0))
           .map((c) => {
             return (
               <Character
-              char={c}
-              setListChar={setListChar}
-              listChar={listChar}
-              key={c.id}
-              AddInititive={AddInititive}
+                char={c}
+                setListChar={setListChar}
+                listChar={listChar}
+                key={c.id}
+                AddInititive={AddInititive}
               />
-              );
-            })}
-
-            </div>
+            );
+          })}
+      </div>
     </div>
   );
 };

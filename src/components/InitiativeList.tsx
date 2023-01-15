@@ -35,7 +35,7 @@ const InitiativeList = ({ Characters, editOrder }: { Characters: ICharacter[], e
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
 
-    if(active.id !== over?.id && over?.id){
+    if(activeId !== over?.id && over?.id){
         editOrder((items) => {
             const oldIndex = items.map(i => i.id).indexOf(active.id.toString());
             const newIndex = items.map(i => i.id).indexOf(over.id.toString());
@@ -52,9 +52,9 @@ const InitiativeList = ({ Characters, editOrder }: { Characters: ICharacter[], e
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
     >
-      <div className="flex flex-col items-center gap-5 overflow-auto">
-        <h1 className="text-gray-50 font-bold text-2xl">Initiative</h1>
-        <div className="bg-slate-300 w-72 mb-10 flex-auto flex-col overflow-auto h-80 rounded-md">
+      <div className="flex flex-col items-center gap-5 overflow-auto m-3">
+        <h1 className="text-gray-50 font-bold text-3xl">Initiative</h1>
+        <div className="bg-zinc-900 w-full mb-5 flex flex-auto flex-col items-center overflow-auto h-80 rounded-md gap-2">
           <SortableContext
             items={Characters}
             strategy={verticalListSortingStrategy}
