@@ -1,12 +1,12 @@
 {
-  "name": "vite-reactts-electron-starter",
+  "name": "dnd_initiative_tracker",
   "version": "0.5.0",
   "license": "MIT",
   "main": "main/index.js",
   "author": {
-    "name": "Maximilian Stümpfl"
+    "name": "Michael Wong"
   },
-  "description": "Starter using Vite 2+ React +Typescript + Electron for fast prototyping.",
+  "description": "",
   "keywords": [
     "vite",
     "react",
@@ -14,9 +14,9 @@
     "typescript"
   ],
   "repository": {
-    "url": "https://github.com/lTimeless/vite-reactts-electron-starter"
+    "url": "https://github.com/VisilyRomani/dnd-initiative"
   },
-  "productName": "vite-reactts-electron-starter",
+  "productName": "DnD initiative Tracker",
   "scripts": {
     "dev": "concurrently \"yarn dev:vite\" \" yarn dev:electron\"",
     "dev:vite": "vite",

@@ -20,11 +20,10 @@ function createWindow() {
     fullscreenable: true,
     webPreferences: {
       preload: join(__dirname, 'preload.js')
-    }
+    },
+    title:'DnD Initiative Tracker'
   });
   
-  window.webContents.openDevTools()
-
   const port = process.env.PORT || 3000;
   const url = isDev ? `http://localhost:${port}` : join(__dirname, '../src/out/index.html');
 
