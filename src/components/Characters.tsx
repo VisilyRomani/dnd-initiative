@@ -39,6 +39,7 @@ const Characters = ({
   };
 
   return (
+    
     <div className="flex flex-col items-center gap-5 overflow-auto m-3">
       <h1 className="text-gray-50 font-bold text-3xl">Characters</h1>
       <form onSubmit={OnFormSubmit} className='w-full'>
@@ -59,7 +60,7 @@ const Characters = ({
           </div>
       </form>
 
-      <div className="bg-zinc-900 w-full mb-10 flex flex-auto flex-col items-center overflow-auto h-80 rounded-md gap-2">
+      <div className="bg-zinc-900 w-full mb-5 flex flex-auto flex-col items-center overflow-auto h-80 rounded-md gap-2">
         {listChar
           .filter((lc) => !initiative.find((i) => lc.id === i.id))
           .sort((a, b) => (b.star ? 1 : 0) - (a.star ? 1 : 0))
