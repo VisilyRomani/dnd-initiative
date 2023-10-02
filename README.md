@@ -1,3 +1,10 @@
+# Dnd Initiative Tracker
+## Features
+- Create custom names for players or nps
+- Sort Items based on real life initiative
+- Star items to have easy access for more important people
+- Store all data in local storage so no internet connection needed
+
 ## Installation
 
 ## Development
