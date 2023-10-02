@@ -1,13 +1,10 @@
 ## Installation
 
 ## Development
+This will start the electron server and the vite dev server for the application
+ `npm run dev`
 
-`yarn dev` or `npm run dev`
-
-## Build
-
-`yarn build` or `npm run build`
 
 ## Publish
-
+This will generate a .dist folder with the application inside
 `yarn dist` or `npm run dist`
